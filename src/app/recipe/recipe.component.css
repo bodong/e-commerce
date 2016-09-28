@@ -1,0 +1,24 @@
+#table-total-text {
+    text-align: right;
+}
+
+table {
+    font-weight: bold;
+}
+
+div {
+    padding: 20px;
+    margin: 0 auto;
+    width: 80%;
+    text-align: center;
+}
+
+th {
+    text-align: center;
+    background-color: dimgray;
+    color: white;
+}
+
+h1 {
+    margin: 20px;
+}

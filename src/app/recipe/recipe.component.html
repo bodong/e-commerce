@@ -1,0 +1,31 @@
+<h1>Date  {{order.create_time | date:'fullDate'}}</h1>
+<div>
+  <table class='table table-bordered table-hover'>
+    <tr>
+      <th>Item</th>
+      <th>Quatity</th>
+      <th>Unit Price</th>
+      <th>Total</th>
+    </tr>
+    <tbody>
+      <tr *ngFor="let orderItem of order.items" >
+        <td>{{orderItem.item}}</td>
+        <td>{{orderItem.quantity | number}}</td>
+        <td>{{orderItem.unit_price | currency:"MYR"}}</td>
+        <td>{{orderItem.quantity * orderItem.unit_price | currency:"MYR"}}</td>
+      </tr>
+      <tr>
+        <td colspan="3" id='table-total-text'>Total</td>
+        <td>{{ order.items | totalPipe | currency:"MYR"}}</td>
+      </tr>
+      <tr>
+        <td colspan="3" id='table-total-text'>Tax</td>
+        <td>{{ order.items | totalPipe | taxPipe:6 | currency:"MYR" }}</td>
+      </tr>
+      <tr>
+        <td colspan="3" id='table-total-text'>Total</td>
+        <td>{{ (order.items | totalPipe) + (order.items | totalPipe | taxPipe:6) | currency:"MYR" }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

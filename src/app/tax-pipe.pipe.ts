@@ -6,8 +6,9 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class TaxPipePipe implements PipeTransform {
 
   transform(num:number, tax?: number): any {
-    
-    return 
+    let def_tax;
+    typeof(tax) == 'number' ?def_tax=tax:def_tax=7;
+    return  def_tax * num / 100
   }
 
 }
